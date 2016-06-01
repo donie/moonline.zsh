@@ -25,7 +25,7 @@ if [ "$USER" = 'root' ]
   then
     MOONLINE_LEFT1_1=(hostname)
   else
-    MOONLINE_LEFT1_1=(username)
+    MOONLINE_LEFT1_1=(username_hostname_ssh)
 fi
 MOONLINE_LEFT1_2=(current_path)
 # right prompt groups (max 4)
