@@ -9,10 +9,23 @@ function prompt_sorin_pwd {
   fi
 }
 
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable bzr git hg svn cvs
+zstyle ':vcs_info:*:*' check-for-changes true
+zstyle ':vcs_info:*:*' unstagedstr '!'
+zstyle ':vcs_info:*:*' stagedstr '+'
+zstyle ':vcs_info:*:*' actionformats "%r:%b %m%u%c (%a)"
+zstyle ':vcs_info:*:*' formats "%r:%b %m%u%c"
+zstyle ':vcs_info:*:*' nvcsformats ""
+
 precmd() {
   psvar=()
+  vcs_info
   prompt_sorin_pwd
   psvar[1]="$_prompt_sorin_pwd"
+  psvar[2]="$(date +%T)"
+  [[ -n $vcs_info_msg_0_ ]] && psvar[2]="$vcs_info_msg_0_"
 }
 
 MOONLINE_COMPONENTS+=(
@@ -27,4 +40,5 @@ MOONLINE_COMPONENTS+=(
   status "%(?..%{%F{red}%})%?"
   username_hostname_ssh "%n${SSH_TTY:+@%M}"
   current_path_sorin "%1v"
+  vcs_info "%2v"
 )

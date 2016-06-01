@@ -29,7 +29,7 @@ if [ "$USER" = 'root' ]
 fi
 MOONLINE_LEFT1_2=(current_path_sorin)
 # right prompt groups (max 4)
-MOONLINE_RIGHT1=(time)
+MOONLINE_RIGHT1=(vcs_info)
 
 # moonline.zsh find colorscheme using this pathes
 MOONLINE_COLORSCHEME_PATH=''
