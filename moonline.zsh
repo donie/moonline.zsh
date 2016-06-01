@@ -21,7 +21,12 @@ typeset -A MOONLINE_COMPONENTS
 # number of left prompt line
 MOONLINE_LEFT_LINE=1
 # left prompt groups (max 4)
-MOONLINE_LEFT1_1=(username)
+if [ "$USER" = 'root' ]
+  then
+    MOONLINE_LEFT1_1=(hostname)
+  else
+    MOONLINE_LEFT1_1=(username)
+fi
 MOONLINE_LEFT1_2=(current_path)
 # right prompt groups (max 4)
 MOONLINE_RIGHT1=(time)
