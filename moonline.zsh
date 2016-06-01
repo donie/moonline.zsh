@@ -27,7 +27,7 @@ if [ "$USER" = 'root' ]
   else
     MOONLINE_LEFT1_1=(username_hostname_ssh)
 fi
-MOONLINE_LEFT1_2=(current_path)
+MOONLINE_LEFT1_2=(current_path_sorin)
 # right prompt groups (max 4)
 MOONLINE_RIGHT1=(time)
 
