@@ -25,9 +25,14 @@ if [ "$USER" = 'root' ]
   then
     MOONLINE_LEFT1_1=(hostname)
   else
-    MOONLINE_LEFT1_1=(username_hostname_ssh)
+    MOONLINE_LEFT1_1=(username)
 fi
-MOONLINE_LEFT1_2=(current_path_sorin)
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]
+  then
+    MOONLINE_LEFT1_1=(username)
+    MOONLINE_LEFT1_2=(hostname)
+fi
+MOONLINE_LEFT1_3=(current_path_sorin)
 # right prompt groups (max 4)
 MOONLINE_RIGHT1=(vcs_info)
 

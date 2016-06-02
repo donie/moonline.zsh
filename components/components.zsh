@@ -38,7 +38,6 @@ MOONLINE_COMPONENTS+=(
   time "%*"
   datetime "%d %*"
   status "%(?..%{%F{red}%})%?"
-  username_hostname_ssh "%n${SSH_TTY:+@%M}"
   current_path_sorin "%1v"
   vcs_info "%2v"
 )
