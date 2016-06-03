@@ -35,6 +35,7 @@ fi
 MOONLINE_LEFT1_3=(current_path_sorin)
 # right prompt groups (max 4)
 MOONLINE_RIGHT1=(vcs_info)
+MOONLINE_RIGHT2=(status)
 
 # moonline.zsh find colorscheme using this pathes
 MOONLINE_COLORSCHEME_PATH=''
