@@ -1,7 +1,7 @@
 # set shell varibles
 
 # moonline.zsh installed directory's path
-MOONLINE_HOME="$(cd "$(dirname ${0})"; pwd)"
+local MOONLINE_HOME="$(cd "$(dirname ${0})"; pwd)"
 
 # moonline.zsh prompt's separatos (left right)
 MOONLINE_SEPARATOR=('' '')
