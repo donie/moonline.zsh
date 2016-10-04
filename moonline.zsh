@@ -32,7 +32,7 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]
     MOONLINE_LEFT1_1=(username)
     MOONLINE_LEFT1_2=(hostname)
 fi
-MOONLINE_LEFT1_3=(current_path_sorin)
+MOONLINE_LEFT1_3=(current_path_short)
 # right prompt groups (max 4)
 MOONLINE_RIGHT1=(vcs_info)
 MOONLINE_RIGHT2=(status)

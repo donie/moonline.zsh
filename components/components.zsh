@@ -1,14 +1,3 @@
-function prompt_sorin_pwd {
-  local pwd="${PWD/#$HOME/~}"
-
-  if [[ "$pwd" == (#m)[/~] ]]; then
-    _prompt_sorin_pwd="$MATCH"
-    unset MATCH
-  else
-    _prompt_sorin_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
-  fi
-}
-
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable bzr git hg svn cvs
@@ -22,8 +11,7 @@ zstyle ':vcs_info:*:*' nvcsformats ""
 precmd() {
   psvar=()
   vcs_info
-  prompt_sorin_pwd
-  psvar[1]="$_prompt_sorin_pwd"
+  psvar[1]="$(short_pwd)"
   psvar[2]="$(date +%T)"
   [[ -n $vcs_info_msg_0_ ]] && psvar[2]="$vcs_info_msg_0_"
 }
@@ -38,6 +26,6 @@ MOONLINE_COMPONENTS+=(
   time "%*"
   datetime "%d %*"
   status "%(?..%{%F{red}%})%?"
-  current_path_sorin "%1v"
+  current_path_short "%1v"
   vcs_info "%2v"
 )
