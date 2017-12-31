@@ -8,6 +8,20 @@ zstyle ':vcs_info:*:*' actionformats "%r:%b %m%u%c (%a)"
 zstyle ':vcs_info:*:*' formats "%r:%b %m%u%c"
 zstyle ':vcs_info:*:*' nvcsformats ""
 
+short_pwd() {
+    local current_dir="${1:-${PWD}}"
+    local return_dir='~'
+
+    current_dir="${current_dir/#${HOME}/~}"
+
+    # if we aren't in ~
+    if [[ ${current_dir} != '~' ]]; then
+      return_dir="${${${${(@j:/:M)${(@s:/:)current_dir}##.#?}:h}%/}//\%/%%}/${${current_dir:t}//\%/%%}"
+    fi
+
+    print ${return_dir}
+}
+
 precmd() {
   psvar=()
   vcs_info
